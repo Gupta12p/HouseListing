@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container my-4">
+   <div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <h3 class="text-center">Add House</h3>
+                <form action="{{ url_for('add_house') }}" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image_1" class="form-label">Picture 1</label>
+                        <input type="file" class="form-control" id="image_1" name="image_1" accept=".jpg, .jpeg, .png, .webp" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image_2" class="form-label">Picture 2</label>
+                        <input type="file" class="form-control" id="image_2" name="image_2" accept=".jpg, .jpeg, .png, .webp" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image_3" class="form-label">Picture 3</label>
+                        <input type="file" class="form-control" id="image_3" name="image_3" accept=".jpg, .jpeg, .png, .webp" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add House</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div>
+    
+
+</div>
+
+
+
+{% endblock %}

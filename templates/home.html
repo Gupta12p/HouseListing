@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container my-4">
+      
+
+        <!-- card collection -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+      {% for house in houses %}
+
+        <div class="col">
+          <a href="{{ url_for('house_details', house_id=house.id) }}" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow border-0">
+            <img style="min-height:300px;max-height:300px;" src="{% if house.image_1 %}{{ url_for('uploaded_file', filename=house.image_1) }}{% endif %}" class="card-img-top"
+              alt="Hollywood Sign on The Hill" />
+            <div class="card-body">
+              <h5 class="card-title">{{ house.title }}</h5>
+              <p class="card-text">Price: €{{ house.price }}</p>
+              <p class="card-text">location: {{ house.location }}</p>
+            </div>
+          </div>
+        </a>
+        </div>
+      
+      {% endfor %}
+    </div>
+     <!-- card collection -->
+    </div>
+{% endblock %}

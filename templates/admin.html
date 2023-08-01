@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container my-4">
+
+    <div class="row my-4">
+        <div class="col-md-10 mx-auto">
+
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center">Admin</h3>
+                            <div class="mb-4 text-end">
+                                <a href="{{ url_for('add_house') }}" class="btn btn-primary">Add House</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for house in houses %}
+                                    <tr>
+                                        <td>{{ house.title }}</td>
+                                        <td>{{ house.price }}</td>
+                                        <td>{{ house.description }}</td>
+                                        <td>
+                                            <form action="{{ url_for('remove_house', house_id=house.id) }}" method="POST">
+                                                <button type="submit" class="btn btn-danger">Remove</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+
+
+    
+    
+</div>
+
+
+
+{% endblock %}
